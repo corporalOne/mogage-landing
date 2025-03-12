@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500,600,700,800,900;1,500&display=swap');
+
+:root {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    color: whitesmoke;
+
+    line-height: 1.6;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: #000;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+.content {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto 0 auto;
+    padding-inline: 64px;
+    background: #19191c;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header {
+    margin-top: 32px;
+    font-size: 14px;
+    display: flex;
+    flex: 1;
+    gap: 16px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &__empty {
+        display: flex;
+        flex: 1;
+        height: 40px;
+    }
+
+    &__navigation {
+        display: flex;
+        flex: 1;
+        width: 425px;
+        height: 40px;
+        background: #252529;
+        padding: 4px 16px 4px 16px;
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        &-list {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            font-weight: 500;
+            list-style: none;
+            align-items: center;
+            justify-content: center;
+
+            &__item {
+                display: inline-block;
+                padding: 8px 12px;
+                transition: color 0.2s ease;
+            }
+
+            &__item:hover {
+                color: #2dd4bf;
+            }
+        }
+    }
+}
+
+.theme-switcher {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: end;
+    flex: 1;
+
+    &__button {
+        background-color: #252529;
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: 40px;
+        width: 60px;
+        transition: border-color 0.3s ease;
+    }
+
+    &__button:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        fill: #3e3e45;
+        border-radius: 50%;
+        stroke: rgb(255, 255, 255, 0.5);
+    }
+}
+
+.avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+}
+
+.mt-xl {
+    margin-top: 48px;
+}
+
+.mt-lg {
+    margin-top: 24px;
+}
+
+.mt-md {
+    margin-top: 16px;
+}
+
+.mt-sm {
+    margin-top: 8px;
+}
+
+.base-info {
+    max-width: 700px;
+
+    &__text {
+        color: #a1a1aa;
+    }
+
+    &__social {
+        display: flex;
+        gap: 16px;
+        flex-direction: row;
+
+        &__icon {
+            width: 24px;
+            height: 24px;
+            fill: #a1a1aa;
+            transition: fill 0.2s ease;
+        }
+
+        &__icon:hover {
+            fill: white;
+        }
+    }
+}
+
+.heading-1 {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    &__item {
+        width: 300px;
+        height: 330px;
+        aspect-ratio: 9 / 10;
+        overflow: hidden;
+        background: #252529;
+        border-radius: 10px;
+        flex: none;
+
+        &--1 {
+            rotate: 2deg;
+            object-fit: cover;
+        }
+
+        &--2 {
+            rotate: -2deg;
+            object-fit: cover;
+        }
+
+        &--3 {
+            rotate: 2deg;
+            object-fit: cover;
+        }
+
+        &--4 {
+            rotate: -2deg;
+            object-fit: cover;
+        }
+
+        &--5 {
+            rotate: 2deg;
+            object-fit: cover;
+        }
+    }
+}
