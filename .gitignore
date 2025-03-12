@@ -1,0 +1,12 @@
+# Node modules и зависимости
+node_modules
+
+# Vite кэш и билды
+dist
+.vite
+.cache
+
+# IDE и редакторы
+.vscode
+.idea
+*.log
