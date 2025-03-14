@@ -4,6 +4,7 @@
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-size: 16px;
     font-weight: 500;
     color: whitesmoke;
 
@@ -21,15 +22,48 @@
     box-sizing: border-box;
 }
 
-html {
-    height: auto;
-}
-
-body {
-    display: flex;
+html, body {
     height: 100%;
     width: 100%;
     background: #000;
+}
+
+.container {
+    width: 100%;
+}
+
+.content-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.content-area {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    padding: 0 32px;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+.content-background {
+    padding: 0 32px;
+    background: #19191c;
+    max-width: 1280px;
+    width: 100%;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    min-height: 100vh;
+    margin: 0 auto;
 }
 
 a {
@@ -40,7 +74,7 @@ a {
     display: flex;
     flex-direction: row;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #2dd4bf;
 
     svg {
@@ -51,26 +85,19 @@ a {
     }
 }
 
-.content {
-    width: 100%;
-    height: 100%;
-    max-width: 1280px;
-    margin: 0 auto 0 auto;
-    background: #19191c;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .header {
-    margin-top: 32px;
-    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
-    flex: 1;
-    gap: 16px;
-    height: 40px;
     align-items: center;
     justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
     padding-inline: 80px;
+    font-size: 0.9rem;
+    height: 50px;
     width: 100%;
 
     &__empty {
@@ -79,17 +106,18 @@ a {
         height: 40px;
     }
 
-    &__navigation {
+    nav {
         display: flex;
         flex: 1;
         width: 425px;
-        height: 40px;
-        background: #252529;
-        padding: 4px 16px 4px 16px;
+        height: 50px;
+        background: rgba(37, 37, 41, 0.9);
+        backdrop-filter: blur(4px);
+        padding: 4px 16px;
         border-radius: 40px;
         border: 1px solid rgba(255, 255, 255, 0.1);
 
-        &-list {
+        ul {
             display: flex;
             width: 100%;
             flex-direction: row;
@@ -98,49 +126,46 @@ a {
             align-items: center;
             justify-content: center;
 
-            &__item {
+            li {
                 display: inline-block;
                 padding: 8px 12px;
                 transition: color 0.2s ease;
             }
 
-            &__item:hover {
+            li:hover {
                 color: #2dd4bf;
             }
         }
     }
-}
 
-main {
-    padding-inline: 80px;
-}
+    &__theme-switcher {
+        display: flex;
+        height: 50px;
+        align-items: center;
+        justify-content: end;
+        flex: 1;
 
-.theme-switcher {
-    display: flex;
-    height: 40px;
-    align-items: center;
-    justify-content: end;
-    flex: 1;
+        button {
+            background-color: rgba(37, 37, 41, 0.9);
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 50px;
+            width: 60px;
+            transition: border-color 0.3s ease;
+        }
 
-    &__button {
-        background-color: #252529;
-        border-radius: 40px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        height: 40px;
-        width: 60px;
-        transition: border-color 0.3s ease;
-    }
+        button:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
 
-    &__button:hover {
-        border-color: rgba(255, 255, 255, 0.5);
-    }
-
-    &__icon {
-        width: 24px;
-        height: 24px;
-        fill: #3e3e45;
-        border-radius: 50%;
-        stroke: rgb(255, 255, 255, 0.5);
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: #3e3e45;
+            border-radius: 50%;
+            stroke: rgb(255, 255, 255, 0.5);
+        }
     }
 }
 
@@ -166,35 +191,41 @@ main {
     margin-top: 8px;
 }
 
-.base-info {
-    max-width: 700px;
+main {
+    padding-inline: 80px;
+    flex: auto;
+}
 
-    &__text {
+.welcome {
+    max-width: 700px;
+    flex: 1;
+
+    p {
         color: #a1a1aa;
     }
 
-    &__social {
+    div {
         display: flex;
         gap: 16px;
         flex-direction: row;
 
-        &__icon {
+        a {
             width: 24px;
             height: 24px;
             fill: #a1a1aa;
             transition: fill 0.2s ease;
         }
 
-        &__icon:hover {
+        a:hover {
             fill: white;
         }
     }
 }
 
 .heading-1 {
-    font-size: 44px;
-    font-weight: 900;
-    line-height: 1.2;
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.4;
 }
 
 .image-container {
@@ -227,7 +258,8 @@ main {
 
 .portfolio-container {
     display: flex;
-    flex-direction: row;
+    flex: 1;
+    flex-flow: row nowrap;
     margin-top: 128px;
     width: 100%;
 }
@@ -253,7 +285,7 @@ main {
             font-weight: 300;
             font-size: 16px;
             color: #808087;
-            z-index: 10;
+            z-index: 2;
         }
 
         &__line {
@@ -265,7 +297,6 @@ main {
             inset-block: 4px 0;
             left: 0;
             border-radius: 2px;
-            z-index: 1;
         }
 
         h2 {
@@ -291,9 +322,9 @@ main {
 }
 
 .hr-info {
+    display: flex;
     padding-left: 128px;
     width: 100%;
-    display: flex;
     flex-direction: column;
 }
 
@@ -303,7 +334,7 @@ main {
     top: -1.2rem;
     bottom: -1.2rem;
     position: absolute;
-    z-index: -1;
+    z-index: -2;
     border-radius: 16px;
     scale: 0.95;
     opacity: 0;
@@ -402,6 +433,11 @@ main {
         margin-left: 8px;
     }
 
+    &__point {
+        display: flex;
+        flex-direction: row;
+    }
+
     svg {
         width: 24px;
         height: 24px;
@@ -431,15 +467,15 @@ main {
         h2 {
             font-size: 14px;
         }
-    }
 
-    &__text-container {
-        margin-top: 4px;
-        font-size: 12px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        color: #a1a1aa;
+        div {
+            margin-top: 4px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #a1a1aa;
+        }
 
         span {
             margin: 0;
@@ -479,11 +515,10 @@ main {
 }
 
 footer {
-    height: 100%;
-    margin-top: 80px;
-    padding-inline: 80px;
     display: flex;
     flex-direction: row;
+    margin-top: 80px;
+    padding-inline: 80px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
