@@ -94,10 +94,24 @@ main {
     padding-inline: 64px;
     top: 0;
     z-index: 20;
+    transition: transform 0.2s ease;
+    will-change: transform;
 
     @media (max-width: 768px) {
         padding-inline: 0;
     }
+}
+
+@keyframes fadeOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+#sticky-header {
+    animation: fadeOut linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 300px;
 }
 
 .header {
